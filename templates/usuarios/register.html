@@ -6,10 +6,9 @@
 
 {% block contenido %}
     
-    <div class="container-md">
-        <div class="row align-items-center">
-            <div class="col-0 col-sm-1 col-lg-2"></div>
-            <div class="col-12 col-sm-10 col-lg-8 ">
+    <div class="container col-12 col-sm-9 col-md-6 col-lg-4">
+        <div class="row align-items-center justify-content-center">
+            <div class="col">
 
                 <form action="{{ url_for('registerPost') }}" method="POST" class="row g-3">
                     <div class="mb-3 mt-3 text-center">
@@ -17,7 +16,7 @@
                     </div>
 
                     <div class="col-md-6">
-                        <label for="name" class="form-label">Nombre de usuario *</label>
+                        <label for="name" class="form-label">Nombre de usuario<b style="color: red;">*</b></label>
                         <input type="text" class="form-control" id="name" name="name" value="{{ name }}">
                     </div>
                     <div class="col-md-6">
@@ -26,7 +25,7 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="user" class="form-label">Email</label>
+                        <label for="user" class="form-label">Email<b style="color: red;">*</b></label>
                         <div class="input-group">
                             <div class="input-group-text">@</div>
                             <input type="email" class="form-control" name="user" id="user" value="{{ user }}" placeholder="example@gmail.com">
@@ -35,25 +34,26 @@
                     </div>
 
                     <div class="col-12">
-                        <label for="password" class="form-label">Password</label>
+                        <label for="password" class="form-label">Password<b style="color: red;">*</b></label>
                         <input type="password" class="form-control" name="password" id="password">
-                        <div id="cantidad">Debe contener minimo 8 digitos</div>
-                        <div id="caracteres">Almenos una mayuscula, un numero y un caracter especial</div>
+                        <div id="cantidad" class="form-text">Debe contener minimo 8 digitos</div>
+                        <div id="caracteres" class="form-text">Almenos una mayuscula, un numero y un caracter especial</div>
                     </div>
 
                     {% with messages = get_flashed_messages() %}
                         {% if messages %}
                         <div class="alert alert-danger d-flex align-items-center" role="alert"> 
-                            {% for message in messages %}
-                                <svg class="bi flex-shrink-0 me-2" width="24" height="24" role="img" aria-label="Danger:"><use xlink:href="#exclamation-triangle-fill"/></svg>
-                                <div>{{ message }}</div>
-                            {% endfor %} 
+                            <div class="row">
+                                {% for message in messages %}
+                                    <div class="col-12">{{ message }}</div>
+                                {% endfor %}
+                            </div> 
                         </div>
                         {% endif %}
                     {% endwith %}
 
                     <div class=" d-grid gap-2 col-6 mx-auto">
-                        <button type="submit" class="btn btn-success btn-lg">Registrase</button>
+                        <button type="submit" class="btn btn-success btn-lg">Registrarse</button>
                     </div>
 
                 </form>
@@ -63,13 +63,12 @@
                 </div>
 
                 <div class=" d-grid gap-2 col-6 mx-auto">
-                    <a href=" {{ url_for('login') }} " class="btn btn-primary btn-lg">Inicia sesion</a>
+                    <a href=" {{ url_for('login') }} " class="btn btn-primary btn-lg">Iniciar sesion</a>
                 </div>
 
                 <div class="mb-3"></div>
 
             </div>
-            <div class="col-0 col-sm-1 col-lg-2"></div>
         </div>
     </div>
 

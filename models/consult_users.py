@@ -16,14 +16,19 @@ def ObtenerUusarioUser(user):
     cursor.close()
     return usuario
 
-def CrearUsuario(nombre, apellido, user, password):
-    cursor = db.cursor()
+def ObtenerUsuarioValidar(validate, url_validate):
+    cursor = db.cursor(dictionary=True)
+    cursor.execute('SELECT * FROM usuarios WHERE validate="'+validate+'" AND url_val_mail="'+url_validate+'"')
 
-    cursor.execute("insert into usuarios(nombre_usuario, apellido_usuario, user, password) values(%s,%s,%s,%s)", (
-        nombre, 
-        apellido, 
-        user, 
-        password
-    ))
-
+    usuario = cursor.fetchall()
     cursor.close()
+    return usuario
+
+def ObtenerUrlPass(url_pass):
+    cursor = db.cursor(dictionary=True)
+    cursor.execute('SELECT * FROM usuarios WHERE url_pass ="'+url_pass+'" ')
+
+    usuario = cursor.fetchall()
+    cursor.close()
+    return usuario
+

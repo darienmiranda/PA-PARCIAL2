@@ -1,4 +1,3 @@
-console.log("VALIDAR EMAIL")
 document.getElementById('user').addEventListener('input', function(evt) {
     campo = evt.target;
     text = document.getElementById('validate_email');
@@ -8,7 +7,7 @@ document.getElementById('user').addEventListener('input', function(evt) {
       text.innerText = "E-mail válido";
       text.style.color = "Green"
     } else {;
-      text.innerText = "E-mail incorrecto";
+      text.innerText = "E-mail invalido";
       text.style.color = "Red";
     }
 });

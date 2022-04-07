@@ -24,16 +24,19 @@ CREATE TABLE IF NOT EXISTS `usuarios` (
   `apellido_usuario` varchar(255) DEFAULT NULL,
   `user` varchar(255) DEFAULT NULL,
   `password` varchar(255) DEFAULT NULL,
-  `validation` varchar(5) DEFAULT NULL,
+  `validate` varchar(5) DEFAULT NULL,
+  `url_val_mail` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
 
--- Volcando datos para la tabla parcial2.usuarios: ~1 rows (aproximadamente)
+-- Volcando datos para la tabla parcial2.usuarios: ~4 rows (aproximadamente)
 DELETE FROM `usuarios`;
 /*!40000 ALTER TABLE `usuarios` DISABLE KEYS */;
-INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `user`, `password`, `validation`) VALUES
-	(1, 'prueba', 'prueba', 'prueba@gmail.com', '83100ca686653af97f12ec4be588b4de535318ebe439051be1e98cc70b8604f525f4ee2dbeee60b22d9bf23cecfeeecf9f789ec99e3fe8482449e686fb9924ab', 'true'),
-	(2, 'prueba2', '', 'prueba2@gmail.com', 'df548fa419918be525b32cd27570a925e1311b480cc329067d3940639cf3eaa584727efd2fd2fa5c3d9443835dc0bcb0f74eb06a669565d1d47ea0ad202888c5', NULL);
+INSERT INTO `usuarios` (`id_usuario`, `nombre_usuario`, `apellido_usuario`, `user`, `password`, `validate`, `url_val_mail`) VALUES
+	(1, 'prueba', 'prueba', 'prueba@gmail.com', '83100ca686653af97f12ec4be588b4de535318ebe439051be1e98cc70b8604f525f4ee2dbeee60b22d9bf23cecfeeecf9f789ec99e3fe8482449e686fb9924ab', 'true', NULL),
+	(2, 'prueba2', '', 'prueba2@gmail.com', 'df548fa419918be525b32cd27570a925e1311b480cc329067d3940639cf3eaa584727efd2fd2fa5c3d9443835dc0bcb0f74eb06a669565d1d47ea0ad202888c5', NULL, NULL),
+	(3, 'dsf', 'dsf', 'sobeinnaupro-3857@yopmail.com', 'df548fa419918be525b32cd27570a925e1311b480cc329067d3940639cf3eaa584727efd2fd2fa5c3d9443835dc0bcb0f74eb06a669565d1d47ea0ad202888c5', 'true', ''),
+	(5, 'ss', 'ss', 'sobeinnoyaupro-3857@yopmail.com', 'df548fa419918be525b32cd27570a925e1311b480cc329067d3940639cf3eaa584727efd2fd2fa5c3d9443835dc0bcb0f74eb06a669565d1d47ea0ad202888c5', 'asdas', 'ADSSADasASasHGas6s');
 /*!40000 ALTER TABLE `usuarios` ENABLE KEYS */;
 
 /*!40101 SET SQL_MODE=IFNULL(@OLD_SQL_MODE, '') */;
